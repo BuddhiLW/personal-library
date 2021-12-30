@@ -1,0 +1,24 @@
+{
+  "name": "personal-library",
+  "version": "1.0.0",
+  "description": "buddhi's books",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BuddhiLW/personal-library.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BuddhiLW/personal-library/issues"
+  },
+  "homepage": "https://github.com/BuddhiLW/personal-library#readme",
+  "dependencies": {
+    "libgen": "^2.1.0",
+    "libgenesis": "^1.1.10",
+    "request": "^2.88.2"
+  }
+}
