@@ -1,17 +1,10 @@
 const libgen = require('libgen')
-// const urlString = () => libgen.mirror().then(
-//   e => e
-// )
-
-// var mirror = urlString().then(e => toString(e));
-
 const list= ["Discourse on the Origin of Inequality, rousseau",
              "the idiot dostoevsky"]
 
-options = list => {
+var options = list => {
   let optList = []
   list.forEach(bookName => {
-  // {return console.log(bookName)}
     opt = {
     mirror: 'http:libgen.is',
     query: `${bookName}`,
@@ -44,12 +37,3 @@ var tryBook = (options) => {
 }
 
 request_list.forEach(opt => tryBook(opt))
-
-// const options = {
-//   mirror: 'http://libgen.is',
-//   // query: 'the idiot dostoevsky',
-//   // search_in: 'title',
-//   count: 1,
-//   reverse: true
-// }
-
