@@ -1,3 +1,4 @@
+
 var divf = () => document.createElement("div");
 var addClassf = (e) => ((c) => {e.classList.add(c)
                                return e});

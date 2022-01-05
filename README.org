@@ -1,7 +1,35 @@
-const libgen = require('libgen')
-const list= ["Discourse on the Origin of Inequality, rousseau",
-             "the idiot dostoevsky"]
+#+TITLE: Personal Library with JS
 
+The project started with =npm init=
+
+* API request logic
+** Add libgen to our project dependencies
+#+begin_src shell
+npm install libgen
+#+end_src
+
+
+** Loading the libgen package
+In =app.js=, we require the =libgen= from *NPM*,
+#+begin_src js
+const libgen = require('libgen')
+#+end_src
+
+OBS: the =require= function comes from nodejs project =$ npm init=.
+
+Now, the =libgen= constant is an object, which we can use to access all of libgen's library capabilities
+
+** Hard-coded list of query books 
+#+begin_src js
+const list= ["Discourse on the Origin of Inequality, rousseau",
+             "the idiot, dostoevsky"]
+#+end_src
+
+** Function to transform our =list= into =options= to be called by the API
+
+This is a function mapping: =str -> option=.
+
+#+begin_src js
 var options = list => {
   let optList = []
   list.forEach(bookQuery => {
@@ -15,9 +43,19 @@ var options = list => {
   console.log(optList)
   return optList
 }
+#+end_src
 
+These =options= can be passed to the API.
+
+** Transformation call and storage
+Our transformed data for request,
+#+begin_src js
 var request_list = options(list)
+#+end_src
 
+** API-call-function
+
+#+begin_src js
 var tryBook = (options) => {
   try {
     const data = libgen.search(options).then((data) =>{
@@ -35,6 +73,10 @@ var tryBook = (options) => {
       })})
   } catch (err) {console.error(err)}
 }
+#+end_src
 
-var requests = request_list.forEach(opt => tryBook(opt))
-export {requests}
+** API call
+
+#+begin_src js
+request_list.forEach(opt => tryBook(opt))
+#+end_src
