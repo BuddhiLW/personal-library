@@ -1,66 +1,39 @@
-// import {search} from '../node_modules/libgen/index.js';
 import * as f from'./front-end.js';
 
-// const libgen = require('../node_modules/libgen/index.js')
-const list = ["Discourse on the Origin of Inequality, rousseau",
-             "the idiot dostoevsky"]
-// console.log(libgen)
+const libgen = require('libgenesis');
+var gis = require('g-i-s');
 
-var options = list => {
-  let optList = []
-  list.forEach(bookQuery => {
-    let opt = {
-      mirror: 'http:libgen.is',
-      query: `${bookQuery}`,
-      count: 1,
-      reverse: true}
-    optList.push(opt)})
-  console.log(optList)
-  return optList
-}
+var imageSearch = (query) => {
+  gis(query, (error, results) => results[1].url)};
 
-// var request_list = options(list)
-
-var tryBook = require(["libgen"], (options) => {
-  try {
-    const data = libgen.search(options).then((data) =>{
-      let n = data.length;
-      console.log(`${n} results for "${options.query}"`);
-      data.forEach(e => {
-        console.log('Title: ' + e.title)
-        console.log('Author: ' + e.author)
-        console.log('Image: ' + options.mirror + /covers/ + e.coverurl)
-        console.log('Download: ' +
-                    options.mirror +
-                    '/book/index.php?md5=' +
-                    e.md5.toLowerCase())
-        return data
-      })})
-  } catch (err) {console.error(err)}
-})
-
-var renderBook = require(["libgen"], (options) => {
-  try {
-    const data = libgen.search(options).then((data) =>{
-      let n = data.length;
-      console.log(`${n} results for "${options.query}"`);
-      data.forEach(e => {
-        console.log('Title: ' + e.title)
-        console.log('Author: ' + e.author)
-        console.log('Image: ' + options.mirror + /covers/ + e.coverurl)
-        console.log('Download: ' +
-                    options.mirror +
-                    '/book/index.php?md5=' +
-                    e.md5.toLowerCase())
+var staticImg = "https://img.search.brave.com/yr3GpYNZzhqTQx8fvB6sRJRPL25c9HrO_xSVefYIb54/fit/421/640/ce/1/aHR0cHM6Ly9pLnBp/bmltZy5jb20vNzM2/eC8xOC9iMy9jNS8x/OGIzYzVlYjBlMzNj/YTg0MjViOGNlYmI5/NDhkMzcyNy5qcGc"
 
 
-        return data
-      })})
-  } catch (err) {console.error(err)}
-})
+var jsonToHTML = (e) => {
+  let title = e.title
+  let author = e.author
+  let dl = e.download
+  let text = title + ", " + author
 
+  // let img = e.bookImage
+  var query = {
+    searchTerm: text,
+    queryStringAddition: '&tbs=ic:book',
+    filterOutDomains: [
+      'pinterest.com',
+      'deviantart.com'
+    ]
+  };
 
-// request_list.forEach(opt => tryBook(opt))
-// var requests =
-// export {requests}
-export { renderBook, tryBook, options }
+  let img = imageSearch(query)
+  console.log(img)
+  main.appendChild(f.BookLayout(staticImg)(dl)('title')(text))}
+
+var fetchBook = (bookName) => {
+  libgen(bookName).then((books) => {
+    jsonToHTML(books[1])
+  }).catch(function(error){
+    throw error;
+  })}
+
+export {fetchBook}

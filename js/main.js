@@ -1,23 +1,17 @@
 import * as libg from './app.js';
-import * as f from'./front-end.js';
+// import * as f from'./front-end.js';
 
-// var
 var main = document.querySelector("#main")
-// console.log(div2)
-main.append(f.divf())
-// main.append(div1)
+const list= ["Discourse on the Origin of Inequality, rousseau"]
 
+// var fetchList = (list) => {
+//   let divs = []
+//   list.forEach((e) => divs.push(libg.fetchBook(e)))
+//   return divs
+// }
 
-// console.log(libg.requests)
-const list= ["Discourse on the Origin of Inequality, rousseau",
-             "The idiot, dostoevsky"]
+// list.forEach((book) =>
+//   {libg.fetchBook(book).then( bookElement => main.append(bookElement));})
 
-// console.log(div2)
-console.log(list)
-var request_list = libg.options(list)
-request_list.forEach(opt => libg.tryBook(opt))
+list.forEach((book) => libg.fetchBook(book))
 
-console.log(request_list[1])
-var first = libg.tryBook(request_list[1])
-console.log(first.title)
-// console.log(first.)
