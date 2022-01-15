@@ -18,7 +18,7 @@ const render = (query) => (dl) => {
       return;
     } else {
       // main.appendChild(imageLayout(query.searchTerm)(img))
-      main.appendChild(f.BookLayout(img)(dl)('book')(query.searchTerm))
+      main.appendChild(f.BookLayout(img)(dl)('image')(query.searchTerm))
     }
   })
   console.log(img)
@@ -30,6 +30,8 @@ var jsonToHTML = (e) => {
   let author = e.author
   let dl = e.download
   let text = title + ", " + author
+
+  console.log(text)
 
   // let img = e.bookImage
   var query = {

@@ -2,7 +2,8 @@ import * as libg from './app.js';
 // import * as f from'./front-end.js';
 
 var main = document.querySelector("#main")
-const list= ["Discourse on the Origin of Inequality, rousseau"]
+const list= ["Discourse on the Origin of Inequality, Rousseau",
+             "The Brothers Karamazov, Dostoievsky"]
 
 // var fetchList = (list) => {
 //   let divs = []

@@ -17,13 +17,18 @@
   },
   "homepage": "https://github.com/BuddhiLW/personal-library#readme",
   "dependencies": {
+    "animejs": "^3.2.1",
     "arithmetic": "^1.0.1",
+    "g-i-s": "^2.1.6",
     "libgen": "^2.1.0",
     "libgenesis": "^1.1.10",
     "repeat-string": "^1.6.1",
     "request": "^2.88.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.16.7",
+    "@babel/preset-env": "^7.16.8",
+    "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "esmify": "^2.1.1"
   }
