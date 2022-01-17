@@ -21,11 +21,13 @@ var addAf = (e) => (url) => {
   return link
 }
 
-var imgAf = (src) => ((a) => {let e = imgf(src)
-                            let link = document.createElement("a")
-                            link.href = a
-                            link.appendChild(e)
-                            return link})
+var imgAf = (src) => ((a) =>
+  {
+    let e = imgf(src)
+    let link = document.createElement("a")
+    link.href = a
+    link.appendChild(e)
+    return link})
 
 var hwImg = (e) => (h) => (w) => {
   // let img =

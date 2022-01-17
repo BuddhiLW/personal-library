@@ -19,6 +19,7 @@
   "dependencies": {
     "animejs": "^3.2.1",
     "arithmetic": "^1.0.1",
+    "bing-image-search-api-scraper": "^1.0.0",
     "g-i-s": "^2.1.6",
     "libgen": "^2.1.0",
     "libgenesis": "^1.1.10",

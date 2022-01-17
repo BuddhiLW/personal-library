@@ -1,9 +1,13 @@
 import * as libg from './app.js';
+import * as libg2 from './app2.js';
 // import * as f from'./front-end.js';
 
 var main = document.querySelector("#main")
-const list= ["Discourse on the Origin of Inequality, Rousseau",
-             "The Brothers Karamazov, Dostoievsky"]
+const list= [
+  "Discourse on the Origin of Inequality",
+  "The Brothers Karamazov",
+  "Os lusiadas"
+]
 
 // var fetchList = (list) => {
 //   let divs = []
@@ -14,5 +18,5 @@ const list= ["Discourse on the Origin of Inequality, Rousseau",
 // list.forEach((book) =>
 //   {libg.fetchBook(book).then( bookElement => main.append(bookElement));})
 
-list.forEach((book) => libg.fetchBook(book))
-
+// list.forEach((book) => libg.fetchBook(book))
+list.forEach((book) => libg2.fetchBook2(book))
